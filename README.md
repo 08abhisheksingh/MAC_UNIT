@@ -1,6 +1,6 @@
 # MAC_UNIT
-This is MAC UNIT
-<h1 align="center"> MAC Unit RTL → GDSII</h1>
+This is MAC_Unit
+<h1 align="center">MAC Unit RTL → GDSII</h1>
 
 <p align="center">
 <b>Complete ASIC Implementation using Verilog HDL, OpenLane & Sky130 PDK</b>
@@ -11,6 +11,7 @@ This is MAC UNIT
 ![Verilog](https://img.shields.io/badge/Language-Verilog-blue)
 ![OpenLane](https://img.shields.io/badge/OpenLane-ASIC-green)
 ![Sky130](https://img.shields.io/badge/PDK-Sky130-orange)
+![Azure VM](https://img.shields.io/badge/Platform-Azure_VM-blue)
 ![Ubuntu](https://img.shields.io/badge/OS-Ubuntu-E95420)
 
 </p>
@@ -19,164 +20,301 @@ This is MAC UNIT
 
 # Overview
 
-A Multiply–Accumulate (MAC) unit is a fundamental digital hardware component widely used in Digital Signal Processing (DSP), embedded systems, and modern processor architectures. It performs multiplication followed by accumulation in a single operation, making it an essential building block for high-speed arithmetic and signal processing applications.
+A **Multiply–Accumulate (MAC)** unit is a fundamental digital hardware component widely used in **Digital Signal Processing (DSP)**, embedded systems, and modern processor architectures. It performs multiplication followed by accumulation in a single operation, making it an essential building block for high-speed arithmetic and signal processing applications.
 
-This repository presents the complete RTL-to-GDSII ASIC design flow for a custom 4-bit MAC Unit, implemented using OpenLane with the Sky130 Process Design Kit (PDK) on an Azure Virtual Machine (Ubuntu Linux). The project demonstrates the complete ASIC implementation process, including RTL design, functional verification, logic synthesis, floorplanning, power distribution network (PDN) generation, placement, clock tree synthesis (CTS), routing, static timing analysis (STA), physical verification (DRC/LVS), and final GDSII layout generation.
+This repository presents the complete **RTL-to-GDSII ASIC design flow** for a custom **4-bit MAC Unit**, implemented using **OpenLane** with the **Sky130 Process Design Kit (PDK)** on an **Azure Virtual Machine (Ubuntu Linux)**.
 
-The project highlights the complete open-source ASIC design methodology using the OpenLane toolchain. Although the implementation was carried out on an Azure Virtual Machine running Ubuntu, the same RTL-to-GDSII flow can be executed on any Linux-based environment with the required tools and dependencies installed, with only minor differences in installation and execution commands.
+The project demonstrates the complete ASIC implementation flow including:
+
+- RTL Design
+- Functional Verification
+- Logic Synthesis
+- Floorplanning
+- Power Distribution Network (PDN)
+- Placement
+- Clock Tree Synthesis (CTS)
+- Routing
+- Static Timing Analysis (STA)
+- Design Rule Checking (DRC)
+- Layout Versus Schematic (LVS)
+- GDSII Generation
+
+Although this project was implemented on an Azure Virtual Machine running Ubuntu, the same RTL-to-GDSII methodology can be followed on any Linux environment with OpenLane installed.
+
+---
+
+# ASIC Design Flow
+
+```text
+RTL Design
+      │
+      ▼
+Functional Simulation
+      │
+      ▼
+Logic Synthesis
+      │
+      ▼
+Floorplanning
+      │
+      ▼
+Power Planning (PDN)
+      │
+      ▼
+Placement
+      │
+      ▼
+Clock Tree Synthesis
+      │
+      ▼
+Routing
+      │
+      ▼
+Static Timing Analysis
+      │
+      ▼
+DRC & LVS
+      │
+      ▼
+GDSII Generation
+```
+
+---
+
+# Project Structure
+
+```text
+MAC_UNIT
+│
+├── config.json
+│
+├── src
+│   ├── accumulator.v
+│   ├── adder.v
+│   ├── multiplier.v
+│   └── mac.v
+│
+├── testbench
+│   └── mac_tb.v
+│
+└── runs
+    └── RUN_2026.07.15_07.19.01
+        ├── logs
+        ├── reports
+        └── results
+```
 
 ---
 
 # MAC Unit Architecture
 
 <p align="center">
-<img src="MAC_UNIT Architecture.jpg" width="350">
+<img src="mac_architecture.jpg" width="420">
 </p>
 
 <p align="center">
-<b>Figure 1.</b> MAC_UNIT BLOCK DIAGRAM
+<b>Figure 1.</b> MAC Unit Block Diagram
 </p>
 
 ---
 
-# Connecting to the Cloud VM
+# Connecting to Azure Virtual Machine
 
-This project was implemented on a cloud VM running Ubuntu with OpenLane and the Sky130 PDK pre-installed. Connect to the VM over SSH using your private key before starting the setup steps below.
+This project was implemented on an **Azure Virtual Machine (Ubuntu Linux)** with OpenLane and the Sky130 Process Design Kit (PDK) installed.
+
+Connect to the VM using SSH.
 
 ```bash
-ssh -i "<path-to-your-key>.pem" abhishek@<vm-ip-address>
+ssh -i "<path-to-your-key>.pem" abhishek@<vm-public-ip>
 ```
 
-> **Note:** Replace `<path-to-your-key>.pem` and `<vm-ip-address>` with your own key file path and VM IP address. Keeping these as placeholders in the public README avoids exposing real connection details.
+Replace:
 
-Once connected, all subsequent commands in this guide are run inside the VM's terminal.
+- `<path-to-your-key>.pem`
+- `<vm-public-ip>`
+
+with your own Azure credentials.
+
+After logging in, all remaining commands are executed inside the VM.
 
 ---
 
 # Project Setup
 
-Navigate to the **OpenLane** directory and follow the steps below.
+Navigate to the OpenLane directory.
 
-<table>
+```bash
+cd ~/OpenLane
+```
 
-<tr>
-<th width="15%">Step</th>
-<th>Description</th>
-</tr>
+Move to the designs directory.
 
-<tr>
-<td><b>Step 1</b></td>
-<td>
+```bash
+cd designs
+```
 
-Create a new project directory.
+Create a new project.
 
-<pre><code>mkdir MAC_unit</code></pre>
+```bash
+mkdir MAC_UNIT
+```
 
-</td>
-</tr>
+Enter the project directory.
 
-<tr>
-<td><b>Step 2</b></td>
-<td>
+```bash
+cd MAC_UNIT
+```
 
-Move into the project directory.
+Create the required folders.
 
-<pre><code>cd MAC_unit</code></pre>
+```bash
+mkdir src
+mkdir testbench
+```
 
-</td>
-</tr>
+The project directory should now look like:
 
-<tr>
-<td><b>Step 3</b></td>
-<td>
+```text
+MAC_UNIT
+│
+├── src
+└── testbench
+```
 
-Create the <code>src</code> directory.
+---
 
-<pre><code>mkdir src</code></pre>
+# Creating the RTL Files
 
-</td>
-</tr>
+Move into the source directory.
 
-<tr>
-<td><b>Step 4</b></td>
-<td>
+```bash
+cd src
+```
 
-Move into the source directory and create the CLA module.
+Create the following Verilog files.
 
-<pre><code>cd src
-nano adder.v</code></pre>
+```bash
+gedit multiplier.v
+```
 
-Paste the CLA Verilog code, save the file, and close the editor.
+```bash
+gedit adder.v
+```
 
-</td>
-</tr>
+```bash
+gedit accumulator.v
+```
 
-<tr>
-<td><b>Step 5</b></td>
-<td>
+```bash
+gedit mac.v
+```
 
-Repeat the same process for:
+Paste the corresponding Verilog code into each file and save them.
 
-<ul>
+Verify all files.
 
-<li><code>multiplier.v</code></li>
+```bash
+ls
+```
 
-<li><code>accumulator.v</code></li>
+Expected output
 
-<li><code>mac.v</code></li>
+```text
+accumulator.v
+adder.v
+multiplier.v
+mac.v
+```
 
-<li><code>mac_tb.v</code></li>
+---
 
-</ul>
-
-After creating each file, verify using
-
-<pre><code>ls</code></pre>
-
-</td>
-</tr>
-
-<tr>
-<td><b>Step 6</b></td>
-<td>
+# Creating the Testbench
 
 Return to the project directory.
 
-<pre><code>cd ..</code></pre>
+```bash
+cd ..
+```
 
-</td>
-</tr>
+Enter the testbench directory.
 
-<tr>
-<td><b>Step 7</b></td>
-<td>
+```bash
+cd testbench
+```
+
+Create the testbench.
+
+```bash
+gedit mac_tb.v
+```
+
+Paste the Verilog testbench and save it.
+
+Verify.
+
+```bash
+ls
+```
+
+Expected output
+
+```text
+mac_tb.v
+```
+
+---
+
+# Creating config.json
+
+Return to the project directory.
+
+```bash
+cd ..
+```
 
 Create the OpenLane configuration file.
 
-<pre><code>gedit config.json</code></pre>
+```bash
+gedit config.json
+```
 
-Paste the configuration code and save it.
+Paste the configuration and save it.
 
-</td>
-</tr>
-
-</table>
-
-<td>
-<img src="terminal_view.jpg" width="500">
-</td>
-
-<p align="center">
-<b>Figure 2.</b> Terminal View
-</p>
----
-
-# RTL Simulation
-
-Move into the **src** directory and compile the design.
+Verify.
 
 ```bash
-iverilog -o mac_sim acc.v cla.v multiplier.v mac.v mac_tb.v
+ls
+```
+
+Expected output
+
+```text
+config.json
+src
+testbench
+```
+
+---
+
+# RTL Functional Simulation
+
+Before performing physical design, verify the functionality of the MAC Unit using **Icarus Verilog**.
+
+Navigate to the project directory.
+
+```bash
+cd ~/OpenLane/designs/MAC_UNIT
+```
+
+Compile the RTL and testbench.
+
+```bash
+iverilog -o mac_sim \
+src/accumulator.v \
+src/adder.v \
+src/multiplier.v \
+src/mac.v \
+testbench/mac_tb.v
 ```
 
 Run the simulation.
@@ -185,21 +323,21 @@ Run the simulation.
 vvp mac_sim
 ```
 
-After successful execution, the terminal should display the simulation output.
+If the RTL is correct, the terminal displays the MAC operation results.
 
 <p align="center">
-<img src="terminal_sim.jpg" width="700">
+<img src="terminal_sim.jpg" width="750">
 </p>
 
 <p align="center">
-<b>Figure 3.</b> RTL Simulation Output
+<b>Figure 2.</b> RTL Simulation Output
 </p>
 
 ---
 
 # GTKWave Verification
 
-Open the waveform.
+Generate the waveform file (`dump.vcd`) from the testbench and open it using GTKWave.
 
 ```bash
 gtkwave dump.vcd
@@ -207,167 +345,309 @@ gtkwave dump.vcd
 
 Inside GTKWave:
 
-- Select **tb_mac_unit**
-- Add the required signals
-- Adjust the zoom level to inspect the waveform
+- Select the top-level module (`tb_mac_unit`)
+- Add all required signals
+- Zoom in to observe the timing relationships
+
+Observe the following signals:
+
+- Clock
+- Reset
+- Enable
+- Input A
+- Input B
+- Multiplier Output
+- Accumulator Output
+
+---
+
+### Adder Waveform
 
 <p align="center">
-<img src="Waveform_Adder.png" width="700">
+<img src="Waveform_Adder.png" width="750">
 </p>
 
 <p align="center">
-<b>Figure 4.</b> Adder Waveform
-</p>
-
-<p align="center">
-<img src="Waveform_Multiplier.png" width="700">
-</p>
-
-<p align="center">
-<b>Figure 5.</b> Multiplier Waveform
-</p>
-
-<p align="center">
-<img src="Waveform_MAC.png" width="700">
-</p>
-
-<p align="center">
-<b>Figure 6.</b> MAC Waveform
+<b>Figure 3.</b> Carry Lookahead Adder Verification
 </p>
 
 ---
 
-# RTL → GDSII Flow
+### Multiplier Waveform
 
-Return to the **OpenLane** directory.
+<p align="center">
+<img src="Waveform_Multiplier.png" width="750">
+</p>
+
+<p align="center">
+<b>Figure 4.</b> Multiplier Verification
+</p>
+
+---
+
+### MAC Unit Waveform
+
+<p align="center">
+<img src="Waveform_MAC.png" width="750">
+</p>
+
+<p align="center">
+<b>Figure 5.</b> MAC Unit Functional Verification
+</p>
+
+---
+
+# RTL → GDSII ASIC Flow
+
+After successful functional verification, perform the complete ASIC implementation using **OpenLane**.
+
+Move to the OpenLane directory.
 
 ```bash
 cd ~/OpenLane
 ```
 
-Launch the Docker container.
+Start the OpenLane Docker container.
 
 ```bash
 make mount
 ```
 
-Run the complete OpenLane flow.
+Launch the complete RTL-to-GDSII flow.
 
 ```bash
-./flow.tcl -design MAC_unit
+./flow.tcl -design MAC_UNIT
 ```
 
-OpenLane will automatically perform:
+OpenLane automatically performs the following stages:
 
-- RTL Elaboration
+| Step | Description |
+|-------|-------------|
+| 1 | Verilator Lint |
+| 2 | Logic Synthesis |
+| 3 | Static Timing Analysis |
+| 4 | Floorplanning |
+| 5 | IO Placement |
+| 6 | Tap & Decap Cell Insertion |
+| 7 | Power Distribution Network (PDN) |
+| 8 | Global Placement |
+| 9 | Placement Optimization |
+| 10 | Detailed Placement |
+| 11 | Clock Tree Synthesis (CTS) |
+| 12 | Routing |
+| 13 | SPEF Extraction |
+| 14 | Multi-Corner STA |
+| 15 | DRC |
+| 16 | LVS |
+| 17 | GDSII Generation |
+
+---
+
+## OpenLane Flow
+
+<p align="center">
+<img src="Layout_cmd.jpg" width="700">
+</p>
+
+<p align="center">
+<b>Figure 6.</b> Starting the OpenLane Flow
+</p>
+
+---
+
+<p align="center">
+<img src="Layout_terminal.jpg" width="700">
+</p>
+
+<p align="center">
+<b>Figure 7.</b> Synthesis and Floorplanning
+</p>
+
+---
+
+<p align="center">
+<img src="Layout_terminal_next.jpg" width="700">
+</p>
+
+<p align="center">
+<b>Figure 8.</b> Placement and Clock Tree Synthesis
+</p>
+
+---
+
+<p align="center">
+<img src="Layout_terminal_next2.jpg" width="700">
+</p>
+
+<p align="center">
+<b>Figure 9.</b> Routing and Timing Analysis
+</p>
+
+---
+
+<p align="center">
+<img src="Layout_terminal_next3.jpg" width="700">
+</p>
+
+<p align="center">
+<b>Figure 10.</b> Successful RTL-to-GDSII Flow Completion
+</p>
+
+---
+
+At the end of the flow, OpenLane displays:
+
+```text
+[SUCCESS]: Flow complete.
+```
+
+This indicates that the design has successfully passed:
+
+- RTL Verification
 - Logic Synthesis
 - Floorplanning
 - Placement
 - Clock Tree Synthesis
 - Routing
+- Static Timing Analysis
 - DRC
 - LVS
 - GDSII Generation
 
-<table>
+---
 
-<tr>
+# Generated Design Files
 
-<td>
-<img src="Layout_cmd.jpg" width="600">
-</td>
-
-<td>
-<img src="Layout_terminal.jpg" width="600">
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-<img src="Layout_terminal_next.jpg" width="600">
-</td>
-
-<td>
-<img src="Layout_terminal_next2.jpg" width="600">
-</td>
-
-</tr>
-
-<tr>
-
-<td colspan="2" align="center">
-<img src="Layout_terminal_next3.jpg" width="600">
-</td>
-
-</tr>
-
-</table>
-
-> Ignore minor warnings if present. The important message is:
+After a successful run, OpenLane generates several implementation files.
 
 ```text
-SUCCESS : Flow Complete
+results/
+│
+├── final
+│   ├── def
+│   ├── gds
+│   ├── lef
+│   ├── sdc
+│   ├── spef
+│   └── verilog
+│
+└── signoff
 ```
+
+These files are used for ASIC fabrication and post-layout verification.
 
 ---
 
 # KLayout Visualization
 
-Locate the generated GDSII file.
+After the successful completion of the OpenLane flow, locate the generated **GDSII** file.
 
 ```bash
 find . -name "*.gds"
 ```
 
-Open the generated layout.
+Example output:
 
-```bash
-klayout <path_to_gds_file>
+```text
+./designs/MAC_UNIT/runs/RUN_2026.07.15_07.19.01/results/final/gds/mac_unit.gds
 ```
+
+Since the implementation was performed on an **Azure Virtual Machine**, the generated **GDSII** file was downloaded to the local system and opened using **KLayout**.
 
 <p align="center">
 <img src="GDS_view.jpg" width="850">
 </p>
 
 <p align="center">
-<b>Figure 7.</b> Generated GDSII File
+<b>Figure 11.</b> Generated GDSII File
 </p>
+
+---
+
+## KLayout Layout View
+
+The final physical layout of the MAC Unit is visualized using **KLayout**, showing the placement of standard cells, routing, vias, and metal layers generated during the ASIC implementation flow.
 
 <p align="center">
 <img src="klayout_mac.jpg" width="750">
 </p>
 
 <p align="center">
-<b>Figure 8.</b> KLayout View
+<b>Figure 12.</b> Final Layout in KLayout
 </p>
 
 ---
 
 # 3D GDS Visualization
 
-Copy the generated **.gds** file and upload it to
-
-**Tiny Tapeout GDS Viewer**
+To better visualize the generated layout, upload the **mac_unit.gds** file to the online **Tiny Tapeout GDS Viewer**.
 
 https://gds-viewer.tinytapeout.com/
 
+---
+
+### Top View
+
 <p align="center">
-<img src="GDS_3D_View_1.png" width="700">
+<img src="GDS_3D_View_1.png" width="750">
 </p>
 
 <p align="center">
-<b>Figure 9.</b> 3D Visualization of the Final GDSII Layout (Top View)
+<b>Figure 13.</b> 3D Top View of the Final GDSII Layout
+</p>
+
+---
+
+### Isometric View
+
+<p align="center">
+<img src="GDS_3D_View_2.png" width="750">
 </p>
 
 <p align="center">
-<img src="GDS_3D_View_2.png" width="700">
+<b>Figure 14.</b> 3D Isometric View of the Final GDSII Layout
 </p>
 
-<p align="center">
-<b>Figure 10.</b> 3D Visualization of the Final GDSII Layout (Isometric View)
-</p>
+---
+
+# Generated Reports
+
+OpenLane automatically generates various reports during the ASIC implementation process.
+
+| Report | Purpose |
+|---------|---------|
+| `metrics.csv` | Overall design metrics |
+| `manufacturability.rpt` | Manufacturability summary |
+| `1-synthesis.log` | Logic synthesis report |
+| `31-rcx_sta.checks.rpt` | Static Timing Analysis |
+| `40-drc.log` | Design Rule Check |
+| `39-lvs.log` | Layout Versus Schematic Verification |
+
+These reports help evaluate the performance, timing, area, and correctness of the ASIC design.
+
+---
+
+# Final Results
+
+The MAC Unit successfully completed the complete RTL-to-GDSII implementation flow.
+
+| Design Stage | Status |
+|---------------|--------|
+| RTL Design | ✅ Completed |
+| Functional Simulation | ✅ Passed |
+| Verilator Lint | ✅ Passed |
+| Logic Synthesis | ✅ Passed |
+| Floorplanning | ✅ Passed |
+| Power Distribution Network | ✅ Passed |
+| Global Placement | ✅ Passed |
+| Detailed Placement | ✅ Passed |
+| Clock Tree Synthesis | ✅ Passed |
+| Routing | ✅ Passed |
+| Static Timing Analysis | ✅ Passed |
+| SPEF Extraction | ✅ Passed |
+| Design Rule Check (DRC) | ✅ No Violations |
+| Layout Versus Schematic (LVS) | ✅ Passed |
+| GDSII Generation | ✅ Successful |
 
 ---
 
@@ -377,26 +657,67 @@ The project consists of the following Verilog modules.
 
 | File | Description |
 |------|-------------|
-| `multiplier.v` | Sequential Shift-and-Add Multiplier |
+| `multiplier.v` | 4-bit Sequential Shift-and-Add Multiplier |
 | `adder.v` | 17-bit Carry Lookahead Adder |
 | `accumulator.v` | 17-bit Accumulator |
-| `mac.v` | Top-level MAC Module |
+| `mac.v` | Top-Level MAC Unit |
 | `mac_tb.v` | Functional Testbench |
-| `config.json` | OpenLane Configuration |
+| `config.json` | OpenLane Configuration File |
+
+---
+
+# Tools Used
+
+| Tool | Purpose |
+|------|---------|
+| Verilog HDL | RTL Design |
+| Icarus Verilog | Functional Simulation |
+| GTKWave | Waveform Analysis |
+| OpenLane | RTL-to-GDSII Flow |
+| OpenROAD | Physical Design |
+| Sky130 PDK | Standard Cell Library |
+| Magic | DRC & GDS Generation |
+| KLayout | Layout Visualization |
+| Tiny Tapeout GDS Viewer | 3D Layout Visualization |
+| Azure Virtual Machine | Cloud-Based Development Environment |
 
 ---
 
 # Conclusion
 
-The complete **RTL → GDSII** implementation of the **MAC Unit** has been successfully demonstrated.
+A complete **RTL-to-GDSII ASIC implementation** of a **4-bit Multiply–Accumulate (MAC) Unit** was successfully carried out using the **OpenLane** open-source ASIC flow and the **Sky130 Process Design Kit (PDK)** on an **Azure Virtual Machine (Ubuntu Linux)**.
 
-This design can be further extended into:
+The design was functionally verified using **Icarus Verilog**, followed by physical implementation through synthesis, floorplanning, placement, clock tree synthesis, routing, timing analysis, DRC, LVS, and GDSII generation. The final layout was successfully visualized using **KLayout** and the **Tiny Tapeout GDS Viewer**, demonstrating a complete open-source ASIC design workflow.
 
-- ✅ Multi-MAC Arrays
-- ✅ Pipelined Architectures
-- ✅ Systolic Arrays
-- ✅ Matrix Multiplication Engines
-- ✅ CNN / AI Accelerators
-- ✅ FPGA Implementations
+This project provides practical experience with the end-to-end digital ASIC implementation process and serves as a foundation for designing more complex VLSI systems.
 
 ---
+
+# Future Scope
+
+This MAC Unit can be extended for more advanced VLSI applications such as:
+
+- ✅ Higher Bit-Width MAC Units (8-bit, 16-bit, 32-bit)
+- ✅ Pipelined MAC Architectures
+- ✅ High-Speed Carry Lookahead Adders
+- ✅ FIR and IIR Digital Filters
+- ✅ Systolic Array Architectures
+- ✅ Matrix Multiplication Accelerators
+- ✅ AI and CNN Hardware Accelerators
+- ✅ FPGA-Based Implementations
+- ✅ Low-Power ASIC Design Techniques
+- ✅ Custom Standard Cell Design
+
+---
+
+# Author
+
+**Abhishek Singh**
+
+B.Tech – Electronics and Communication Engineering (VLSI Design)
+
+Faculty of Technology, University of Delhi
+
+---
+
+## ⭐ If you found this project helpful, consider giving this repository a Star!
