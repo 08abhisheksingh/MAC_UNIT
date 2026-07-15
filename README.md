@@ -109,7 +109,7 @@ MAC_UNIT
 # MAC Unit Architecture
 
 <p align="center">
-<img src="mac_architecture.jpg" width="420">
+<img src="MAC_UNIT Architecture.jpg" width="420">
 </p>
 
 <p align="center">
