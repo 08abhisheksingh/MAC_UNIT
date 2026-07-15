@@ -189,6 +189,14 @@ tree
 
 </table>
 
+<td>
+<img src="Terminal View.ppg" width="500">
+</td>
+
+<p align="center">
+<b>Figure 2.</b> Terminal View
+</p>
+
 ---
 
 ---
@@ -218,7 +226,7 @@ vvp mac_sim
 If the RTL is correct, the terminal displays the MAC operation results.
 
 <p align="center">
-<img src="terminal_sim.jpg" width="750">
+<img src="RTL Simulation Output.ppg" width="750">
 </p>
 
 <p align="center">
