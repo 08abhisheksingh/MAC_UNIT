@@ -30,7 +30,7 @@ The project highlights the complete open-source ASIC design methodology using th
 # MAC Unit Architecture
 
 <p align="center">
-<img src="MAC_UNIT Architecture.png" width="350">
+<img src="MAC_UNIT Architecture.jpg" width="350">
 </p>
 
 <p align="center">
