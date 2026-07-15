@@ -206,12 +206,7 @@ cd ~/OpenLane/designs/MAC_UNIT
 Compile the RTL and testbench.
 
 ```bash
-iverilog -o mac_sim \
-src/accumulator.v \
-src/adder.v \
-src/multiplier.v \
-src/mac.v \
-testbench/mac_tb.v
+iverilog -o mac_sim \src/accumulator.v \src/adder.v \src/multiplier.v \src/mac.v \testbench/mac_tb.v
 ```
 
 Run the simulation.
