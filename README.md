@@ -34,7 +34,7 @@ The overall ASIC implementation flow remains the same across platforms (Ubuntu, 
 </p>
 
 <p align="center">
-<b>Figure 1.</b> MAC_UNIT Architecture
+<b>Figure 1.</b> MAC_UNIT Architecture.png
 </p>
 
 ---
