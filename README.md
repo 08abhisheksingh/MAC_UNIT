@@ -24,6 +24,7 @@ A Multiply–Accumulate (MAC) unit is a fundamental digital hardware component w
 This repository presents the complete RTL-to-GDSII ASIC design flow for a custom 4-bit MAC Unit, implemented using OpenLane with the Sky130 Process Design Kit (PDK) on an Azure Virtual Machine (Ubuntu Linux). The project demonstrates the complete ASIC implementation process, including RTL design, functional verification, logic synthesis, floorplanning, power distribution network (PDN) generation, placement, clock tree synthesis (CTS), routing, static timing analysis (STA), physical verification (DRC/LVS), and final GDSII layout generation.
 
 The project highlights the complete open-source ASIC design methodology using the OpenLane toolchain. Although the implementation was carried out on an Azure Virtual Machine running Ubuntu, the same RTL-to-GDSII flow can be executed on any Linux-based environment with the required tools and dependencies installed, with only minor differences in installation and execution commands.
+
 ---
 
 # MAC Unit Architecture
