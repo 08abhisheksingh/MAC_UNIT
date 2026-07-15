@@ -30,11 +30,11 @@ The overall ASIC implementation flow remains the same across platforms (Ubuntu, 
 # MAC Unit Architecture
 
 <p align="center">
-<img src="mac_architecture.jpg" width="350">
+<img src="MAC_UNIT Architecture.png" width="350">
 </p>
 
 <p align="center">
-<b>Figure 1.</b> MAC_UNIT Architecture.png
+<b>Figure 1.</b> MAC_UNIT BLOCK DIAGRAM
 </p>
 
 ---
@@ -104,7 +104,7 @@ Create the <code>src</code> directory.
 Move into the source directory and create the CLA module.
 
 <pre><code>cd src
-gedit cla.v</code></pre>
+nano adder.v</code></pre>
 
 Paste the CLA Verilog code, save the file, and close the editor.
 
@@ -121,7 +121,7 @@ Repeat the same process for:
 
 <li><code>multiplier.v</code></li>
 
-<li><code>acc.v</code></li>
+<li><code>accumulator.v</code></li>
 
 <li><code>mac.v</code></li>
 
@@ -378,8 +378,8 @@ The project consists of the following Verilog modules.
 | File | Description |
 |------|-------------|
 | `multiplier.v` | Sequential Shift-and-Add Multiplier |
-| `cla.v` | 17-bit Carry Lookahead Adder |
-| `acc.v` | 17-bit Accumulator |
+| `adder.v` | 17-bit Carry Lookahead Adder |
+| `accumulator.v` | 17-bit Accumulator |
 | `mac.v` | Top-level MAC Module |
 | `mac_tb.v` | Functional Testbench |
 | `config.json` | OpenLane Configuration |
