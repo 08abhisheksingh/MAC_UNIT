@@ -80,7 +80,7 @@ After logging in, all remaining commands are executed inside the VM.
 
 # Project Setup
 
-Navigate to the **OpenLane** directory and follow the steps below to create the project structure.
+Navigate to the **OpenLane** directory and follow the steps below to set up the project.
 
 <table>
 
@@ -93,10 +93,13 @@ Navigate to the **OpenLane** directory and follow the steps below to create the 
 <td><b>Step 1</b></td>
 <td>
 
-Navigate to the OpenLane directory.
+Navigate to the **designs** directory and create a new project.
 
 ```bash
 cd ~/OpenLane
+cd designs
+mkdir MAC_UNIT
+cd MAC_UNIT
 ```
 
 </td>
@@ -106,78 +109,20 @@ cd ~/OpenLane
 <td><b>Step 2</b></td>
 <td>
 
-Move to the **designs** directory.
-
-```bash
-cd designs
-```
-
-</td>
-</tr>
-
-<tr>
-<td><b>Step 3</b></td>
-<td>
-
-Create a new project directory.
-
-```bash
-mkdir MAC_UNIT
-```
-
-</td>
-</tr>
-
-<tr>
-<td><b>Step 4</b></td>
-<td>
-
-Move into the project directory.
-
-```bash
-cd MAC_UNIT
-```
-
-</td>
-</tr>
-
-<tr>
-<td><b>Step 5</b></td>
-<td>
-
-Create the **src** directory.
+Create the required project directories.
 
 ```bash
 mkdir src
-```
-
-</td>
-</tr>
-
-<tr>
-<td><b>Step 6</b></td>
-<td>
-
-Create the **testbench** directory.
-
-```bash
 mkdir testbench
 ```
 
-</td>
-</tr>
-
-<tr>
-<td><b>Step 7</b></td>
-<td>
-
-Verify the project structure.
+Verify the directory structure.
 
 ```bash
 tree
 ```
 
-Expected output:
+Expected Output
 
 ```text
 MAC_UNIT
@@ -189,47 +134,28 @@ MAC_UNIT
 </td>
 </tr>
 
-</table>
+<tr>
+<td><b>Step 3</b></td>
+<td>
 
----
-
----
-
-# Creating the RTL Files
-
-Move into the source directory.
+Move into the **src** directory and create the RTL files.
 
 ```bash
 cd src
-```
 
-Create the following Verilog files.
-
-```bash
 gedit multiplier.v
-```
-
-```bash
 gedit adder.v
-```
-
-```bash
 gedit accumulator.v
-```
-
-```bash
 gedit mac.v
 ```
 
-Paste the corresponding Verilog code into each file and save them.
-
-Verify all files.
+Paste the corresponding Verilog code into each file, save them, and verify.
 
 ```bash
 ls
 ```
 
-Expected output
+Expected Output
 
 ```text
 accumulator.v
@@ -238,29 +164,23 @@ multiplier.v
 mac.v
 ```
 
----
+</td>
+</tr>
 
-# Creating the Testbench
+<tr>
+<td><b>Step 4</b></td>
+<td>
 
-Return to the project directory.
+Return to the project directory and create the testbench.
 
 ```bash
 cd ..
-```
-
-Enter the testbench directory.
-
-```bash
 cd testbench
-```
 
-Create the testbench.
-
-```bash
 gedit mac_tb.v
 ```
 
-Paste the Verilog testbench and save it.
+Paste the testbench code and save it.
 
 Verify.
 
@@ -268,43 +188,64 @@ Verify.
 ls
 ```
 
-Expected output
+Expected Output
 
 ```text
 mac_tb.v
 ```
 
----
+</td>
+</tr>
 
-# Creating config.json
+<tr>
+<td><b>Step 5</b></td>
+<td>
 
-Return to the project directory.
+Return to the project directory and create the OpenLane configuration file.
 
 ```bash
 cd ..
-```
 
-Create the OpenLane configuration file.
-
-```bash
 gedit config.json
 ```
 
-Paste the configuration and save it.
+Paste the OpenLane configuration and save it.
 
-Verify.
+</td>
+</tr>
+
+<tr>
+<td><b>Step 6</b></td>
+<td>
+
+Verify the complete project structure.
 
 ```bash
-ls
+tree
 ```
 
-Expected output
+Expected Output
 
 ```text
-config.json
-src
-testbench
+MAC_UNIT
+│
+├── config.json
+├── src
+│   ├── accumulator.v
+│   ├── adder.v
+│   ├── multiplier.v
+│   └── mac.v
+│
+└── testbench
+    └── mac_tb.v
 ```
+
+</td>
+</tr>
+
+</table>
+
+---
 
 ---
 
