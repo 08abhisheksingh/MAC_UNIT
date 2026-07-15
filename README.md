@@ -80,38 +80,104 @@ After logging in, all remaining commands are executed inside the VM.
 
 # Project Setup
 
+Navigate to the **OpenLane** directory and follow the steps below to create the project structure.
+
+<table>
+
+<tr>
+<th width="15%">Step</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td><b>Step 1</b></td>
+<td>
+
 Navigate to the OpenLane directory.
 
 ```bash
 cd ~/OpenLane
 ```
 
-Move to the designs directory.
+</td>
+</tr>
+
+<tr>
+<td><b>Step 2</b></td>
+<td>
+
+Move to the **designs** directory.
 
 ```bash
 cd designs
 ```
 
-Create a new project.
+</td>
+</tr>
+
+<tr>
+<td><b>Step 3</b></td>
+<td>
+
+Create a new project directory.
 
 ```bash
 mkdir MAC_UNIT
 ```
 
-Enter the project directory.
+</td>
+</tr>
+
+<tr>
+<td><b>Step 4</b></td>
+<td>
+
+Move into the project directory.
 
 ```bash
 cd MAC_UNIT
 ```
 
-Create the required folders.
+</td>
+</tr>
+
+<tr>
+<td><b>Step 5</b></td>
+<td>
+
+Create the **src** directory.
 
 ```bash
 mkdir src
+```
+
+</td>
+</tr>
+
+<tr>
+<td><b>Step 6</b></td>
+<td>
+
+Create the **testbench** directory.
+
+```bash
 mkdir testbench
 ```
 
-The project directory should now look like:
+</td>
+</tr>
+
+<tr>
+<td><b>Step 7</b></td>
+<td>
+
+Verify the project structure.
+
+```bash
+tree
+```
+
+Expected output:
 
 ```text
 MAC_UNIT
@@ -119,6 +185,13 @@ MAC_UNIT
 ├── src
 └── testbench
 ```
+
+</td>
+</tr>
+
+</table>
+
+---
 
 ---
 
