@@ -19,12 +19,11 @@ This is MAC UNIT
 
 # Overview
 
-A **Multiply–Accumulate (MAC)** unit is a digital hardware block widely used in **Digital Signal Processing (DSP)** and computer architectures. 
+A Multiply–Accumulate (MAC) unit is a fundamental digital hardware component widely used in Digital Signal Processing (DSP), embedded systems, and modern processor architectures. It performs multiplication followed by accumulation in a single operation, making it an essential building block for high-speed arithmetic and signal processing applications.
 
-This repository demonstrates the complete **RTL → GDSII** ASIC implementation flow of a custom **4-bit MAC Unit** using **Ubuntu**, **OpenLane**, and the **Sky130 Process Design Kit (PDK)**.
+This repository presents the complete RTL-to-GDSII ASIC design flow for a custom 4-bit MAC Unit, implemented using OpenLane with the Sky130 Process Design Kit (PDK) on an Azure Virtual Machine (Ubuntu Linux). The project demonstrates the complete ASIC implementation process, including RTL design, functional verification, logic synthesis, floorplanning, power distribution network (PDN) generation, placement, clock tree synthesis (CTS), routing, static timing analysis (STA), physical verification (DRC/LVS), and final GDSII layout generation.
 
-The overall ASIC implementation flow remains the same across platforms (Ubuntu, Azure VM, etc.); only the installation and terminal commands vary slightly.
-
+The project highlights the complete open-source ASIC design methodology using the OpenLane toolchain. Although the implementation was carried out on an Azure Virtual Machine running Ubuntu, the same RTL-to-GDSII flow can be executed on any Linux-based environment with the required tools and dependencies installed, with only minor differences in installation and execution commands.
 ---
 
 # MAC Unit Architecture
