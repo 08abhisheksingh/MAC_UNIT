@@ -80,7 +80,7 @@ After logging in, all remaining commands are executed inside the VM.
 
 # Project Setup
 
-Navigate to the **OpenLane** directory and follow the steps below to set up the project.
+Navigate to the **OpenLane** directory and follow the steps below.
 
 <table>
 
@@ -93,7 +93,7 @@ Navigate to the **OpenLane** directory and follow the steps below to set up the 
 <td><b>Step 1</b></td>
 <td>
 
-Navigate to the **designs** directory and create a new project.
+Navigate to the **OpenLane** designs directory and create a new project.
 
 ```bash
 cd ~/OpenLane
@@ -116,21 +116,6 @@ mkdir src
 mkdir testbench
 ```
 
-Verify the directory structure.
-
-```bash
-tree
-```
-
-Expected Output
-
-```text
-MAC_UNIT
-│
-├── src
-└── testbench
-```
-
 </td>
 </tr>
 
@@ -138,31 +123,18 @@ MAC_UNIT
 <td><b>Step 3</b></td>
 <td>
 
-Move into the **src** directory and create the RTL files.
+Move into the **src** directory and create the RTL modules.
 
 ```bash
 cd src
 
-gedit multiplier.v
-gedit adder.v
-gedit accumulator.v
-gedit mac.v
+nano multiplier.v
+nano adder.v
+nano accumulator.v
+nano mac.v
 ```
 
-Paste the corresponding Verilog code into each file, save them, and verify.
-
-```bash
-ls
-```
-
-Expected Output
-
-```text
-accumulator.v
-adder.v
-multiplier.v
-mac.v
-```
+Paste the corresponding Verilog code into each file, save it, and exit the editor.
 
 </td>
 </tr>
@@ -177,22 +149,10 @@ Return to the project directory and create the testbench.
 cd ..
 cd testbench
 
-gedit mac_tb.v
+nano mac_tb.v
 ```
 
-Paste the testbench code and save it.
-
-Verify.
-
-```bash
-ls
-```
-
-Expected Output
-
-```text
-mac_tb.v
-```
+Paste the Verilog testbench code, save it, and exit the editor.
 
 </td>
 </tr>
@@ -206,10 +166,10 @@ Return to the project directory and create the OpenLane configuration file.
 ```bash
 cd ..
 
-gedit config.json
+nano config.json
 ```
 
-Paste the OpenLane configuration and save it.
+Paste the OpenLane configuration, save it, and exit the editor.
 
 </td>
 </tr>
@@ -218,26 +178,10 @@ Paste the OpenLane configuration and save it.
 <td><b>Step 6</b></td>
 <td>
 
-Verify the complete project structure.
+Verify that all project files have been created successfully.
 
 ```bash
 tree
-```
-
-Expected Output
-
-```text
-MAC_UNIT
-│
-├── config.json
-├── src
-│   ├── accumulator.v
-│   ├── adder.v
-│   ├── multiplier.v
-│   └── mac.v
-│
-└── testbench
-    └── mac_tb.v
 ```
 
 </td>
