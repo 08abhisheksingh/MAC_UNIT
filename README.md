@@ -226,21 +226,6 @@ tree
 
 ---
 
-# RTL Verification
-
-Before beginning the ASIC implementation, the RTL modules were verified to ensure correct functionality.
-
-The verification process consisted of:
-
-- RTL compilation
-- Functional simulation
-- Waveform generation
-- Output verification
-
-The complete MAC Unit was simulated using **Icarus Verilog**.
-
----
-
 # RTL Compilation
 
 Navigate to the project directory.
