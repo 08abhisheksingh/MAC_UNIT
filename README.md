@@ -40,7 +40,7 @@ Due to restricted access to the university Cadence environment outside the campu
 # MAC Unit Architecture
 
 <p align="center">
-<img src="mac_architecture.jpg" width="450">
+<img src="MAC_UNIT Architecture.jpg" width="450">
 </p>
 
 <p align="center">
@@ -56,14 +56,14 @@ The RTL schematics generated using Cadence are shown below.
 
 ---
 
-## 4-bit Shift-and-Add Multiplier RTL
+## 4-bit Multiplier RTL
 
 <p align="center">
-<img src="Multiplier_RTL.png" width="800">
+<img src="Waveform Multiplier.png" width="800">
 </p>
 
 <p align="center">
-<b>Figure 2.</b> RTL Schematic of the 4-bit Shift-and-Add Multiplier generated using Cadence
+<b>Figure 2.</b> RTL Schematic of the 4-bit Multiplier generated using Cadence
 </p>
 
 ---
@@ -71,7 +71,7 @@ The RTL schematics generated using Cadence are shown below.
 ## 17-bit Carry Lookahead Adder RTL
 
 <p align="center">
-<img src="Adder_RTL.png" width="800">
+<img src="Waveform Adder.png" width="800">
 </p>
 
 <p align="center">
@@ -80,22 +80,10 @@ The RTL schematics generated using Cadence are shown below.
 
 ---
 
-## 17-bit Accumulator RTL
-
-<p align="center">
-<img src="Accumulator_RTL.png" width="800">
-</p>
-
-<p align="center">
-<b>Figure 4.</b> RTL Schematic of the 17-bit Accumulator generated using Cadence
-</p>
-
----
-
 ## Top-Level MAC Unit RTL
 
 <p align="center">
-<img src="MAC_RTL.png" width="850">
+<img src="Waveform MAC.png" width="850">
 </p>
 
 <p align="center">
