@@ -399,14 +399,41 @@ OpenLane automatically executes every stage of the ASIC implementation.
 
 # OpenLane Execution
 
-<p align="center">
-<img src="Layout command.png" width="850">
-</p>
+<table>
 
-<p align="center">
-<b>Figure 10.</b> Starting the OpenLane RTL-to-GDSII Flow
-</p>
+<tr>
 
+<td>
+<img src="Layout Command.png" width="600">
+</td>
+
+<td>
+<img src="Layout Terminal.png" width="600">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="Layout Terminal1.png" width="600">
+</td>
+
+<td>
+<img src="Layout Terminal2.png" width="600">
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="2" align="center">
+<img src="Layout Terminal3.png" width="600">
+</td>
+
+</tr>
+
+</table>
 ---
 
 # Successful Flow Completion
