@@ -78,8 +78,6 @@ where:
 - **B[3:0]** → Second 4-bit input
 - **P[7:0]** → 8-bit multiplication result
 
----
-
 <p align="center">
 <img src="Waveform Multiplier.png" width="800">
 </p>
@@ -112,8 +110,6 @@ where:
 - **B[16:0]** → Second 17-bit input
 - **S[16:0]** → 17-bit Sum
 - **Cout** → Carry Output
-  
----
 
 <p align="center">
 <img src="Waveform Adder.png" width="800">
@@ -148,7 +144,6 @@ where:
 - **A × B** → 8-bit multiplication result
 - **Accumulator[16:0]** → Previously accumulated value
 - **MAC Output[16:0]** → Updated accumulated result
----
 
 <p align="center">
 <img src="Waveform MAC.png" width="850">
