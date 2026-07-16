@@ -422,12 +422,11 @@ OpenLane automatically executes every stage of the ASIC implementation.
 
 </tr>
 
+</table>
+
 <p align="center">
 <b>Figure 7.</b>  OpenLane Flow
 </p>
-
-
-</table>
 
 # Successful Flow Completion
 
@@ -493,7 +492,7 @@ https://gds-viewer.tinytapeout.com/
 ## Top View
 
 <p align="center">
-<img src="GDS 3D View_1.png" width="850">
+<img src="GDS 3D View 1.png" width="850">
 </p>
 
 <p align="center">
