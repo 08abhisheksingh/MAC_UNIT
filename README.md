@@ -422,6 +422,11 @@ OpenLane automatically executes every stage of the ASIC implementation.
 
 </tr>
 
+<p align="center">
+<b>Figure 7.</b>  OpenLane Flow
+</p>
+
+
 </table>
 
 # Successful Flow Completion
@@ -472,7 +477,7 @@ generated automatically by the OpenLane physical design flow.
 </p>
 
 <p align="center">
-<b>Figure 16.</b> Final MAC Unit Layout in KLayout
+<b>Figure 8.</b> Final MAC Unit Layout in KLayout
 </p>
 
 ---
@@ -492,7 +497,7 @@ https://gds-viewer.tinytapeout.com/
 </p>
 
 <p align="center">
-<b>Figure 17.</b> Top View of the Final GDSII Layout
+<b>Figure 9.</b> Top View of the Final GDSII Layout
 </p>
 
 ## Isometric View
@@ -502,7 +507,7 @@ https://gds-viewer.tinytapeout.com/
 </p>
 
 <p align="center">
-<b>Figure 18.</b> Isometric View of the Final GDSII Layout
+<b>Figure 10.</b> Isometric View of the Final GDSII Layout
 </p>
 
 ---
