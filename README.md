@@ -460,18 +460,6 @@ Locate the generated GDSII file.
 find . -name "*.gds"
 ```
 
-Since the project was implemented on an **Azure Virtual Machine**, the generated GDSII file was downloaded to the local machine and opened using **KLayout**.
-
-<p align="center">
-<img src="GDS_view.jpg" width="900">
-</p>
-
-<p align="center">
-<b>Figure 15.</b> Generated GDSII File
-</p>
-
----
-
 ## Final Physical Layout
 
 The completed layout consists of
@@ -485,7 +473,7 @@ The completed layout consists of
 generated automatically by the OpenLane physical design flow.
 
 <p align="center">
-<img src="klayout_mac.jpg" width="800">
+<img src="Klayout_MAC.png" width="800">
 </p>
 
 <p align="center">
@@ -507,7 +495,7 @@ https://gds-viewer.tinytapeout.com/
 ## Top View
 
 <p align="center">
-<img src="GDS_3D_View_1.png" width="850">
+<img src="GDS 3D View_1.png" width="850">
 </p>
 
 <p align="center">
@@ -519,7 +507,7 @@ https://gds-viewer.tinytapeout.com/
 ## Isometric View
 
 <p align="center">
-<img src="GDS_3D_View_2.png" width="850">
+<img src="GDS 3D View 2.png" width="850">
 </p>
 
 <p align="center">
