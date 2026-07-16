@@ -1,4 +1,4 @@
-<h1 align="center">4-bit MAC Unit RTL → GDSII ASIC Implementation</h1>
+<h1 align="center">MAC UNIT RTL → GDSII ASIC Implementation</h1>
 
 <p align="center">
 <b>RTL Design using Cadence • Physical Design using OpenLane & Sky130 PDK</b>
@@ -17,34 +17,6 @@
 
 ---
 
-# Table of Contents
-
-- [Overview](#overview)
-- [Project Highlights](#project-highlights)
-- [Development Workflow](#development-workflow)
-- [ASIC Design Flow](#asic-design-flow)
-- [MAC Unit Architecture](#mac-unit-architecture)
-- [RTL Design using Cadence](#rtl-design-using-cadence)
-- [Azure Virtual Machine Setup](#azure-virtual-machine-setup)
-- [Project Setup](#project-setup)
-- [RTL Verification](#rtl-verification)
-- [GTKWave Verification](#gtkwave-verification)
-- [RTL → GDSII Flow](#rtl--gdsii-flow)
-- [KLayout Visualization](#klayout-visualization)
-- [3D GDS Visualization](#3d-gds-visualization)
-- [Generated Reports](#generated-reports)
-- [Final Results](#final-results)
-- [Project Directory](#project-directory)
-- [Source Files](#source-files)
-- [Tools Used](#tools-used)
-- [Challenges Faced](#challenges-faced)
-- [Learning Outcomes](#learning-outcomes)
-- [Future Scope](#future-scope)
-- [References](#references)
-- [Author](#author)
-
----
-
 # Overview
 
 A **Multiply–Accumulate (MAC)** unit is one of the most important arithmetic building blocks used in **Digital Signal Processing (DSP)**, embedded systems, machine learning accelerators, and modern processor architectures. It performs multiplication followed by accumulation in a single operation, enabling high-speed arithmetic computations required in digital systems.
@@ -59,134 +31,8 @@ The RTL modules were designed using **Verilog HDL** and initially verified in th
 
 ### Phase 2 – RTL-to-GDSII ASIC Implementation
 
-Due to restricted access to the university Cadence environment outside the campus network, the verified RTL was migrated to an **Azure Virtual Machine (Ubuntu Linux)**. The complete ASIC implementation was then carried out using the **OpenLane** open-source RTL-to-GDSII flow together with the **Sky130 Process Design Kit (PDK)**.
+Due to restricted access to the university Cadence environment outside the campus network, the verified RTL was migrated to an **Azure Virtual Machine**. The complete ASIC implementation was then carried out using the **OpenLane** open-source RTL-to-GDSII flow together with the **Sky130 Process Design Kit (PDK)**.
 
-The implementation includes
-
-- RTL Design
-- RTL Verification
-- Logic Synthesis
-- Floorplanning
-- Power Distribution Network (PDN)
-- Placement
-- Clock Tree Synthesis (CTS)
-- Routing
-- Static Timing Analysis (STA)
-- Design Rule Check (DRC)
-- Layout Versus Schematic (LVS)
-- GDSII Generation
-
----
-
-# Project Highlights
-
-- ✅ Custom 4-bit Multiply–Accumulate (MAC) Unit
-- ✅ RTL Design using Verilog HDL
-- ✅ RTL Schematic Generation using Cadence
-- ✅ Functional Verification using Cadence
-- ✅ Functional Simulation using Icarus Verilog
-- ✅ Waveform Verification using GTKWave
-- ✅ RTL-to-GDSII ASIC Flow using OpenLane
-- ✅ Sky130 Open-Source Process Design Kit
-- ✅ Physical Verification (DRC & LVS)
-- ✅ GDSII Layout Generation
-- ✅ KLayout Visualization
-- ✅ 3D GDS Visualization using Tiny Tapeout Viewer
-
----
-
-# Development Workflow
-
-The MAC Unit was developed following the workflow shown below.
-
-```text
-             Specification
-                   │
-                   ▼
-          RTL Design (Cadence)
-                   │
-                   ▼
-      RTL Schematic Generation
-                   │
-                   ▼
-      Functional Verification
-                   │
-                   ▼
-       Azure Virtual Machine
-                   │
-                   ▼
-             OpenLane Flow
-                   │
-                   ▼
-           Logic Synthesis
-                   │
-                   ▼
-            Floorplanning
-                   │
-                   ▼
-         Power Distribution
-                   │
-                   ▼
-             Placement
-                   │
-                   ▼
-      Clock Tree Synthesis
-                   │
-                   ▼
-              Routing
-                   │
-                   ▼
-      Static Timing Analysis
-                   │
-                   ▼
-             DRC & LVS
-                   │
-                   ▼
-          GDSII Generation
-```
-
----
-
-# ASIC Design Flow
-
-```text
-RTL Design
-      │
-      ▼
-RTL Verification
-      │
-      ▼
-Logic Synthesis
-      │
-      ▼
-Floorplanning
-      │
-      ▼
-Power Planning (PDN)
-      │
-      ▼
-Placement
-      │
-      ▼
-Clock Tree Synthesis
-      │
-      ▼
-Routing
-      │
-      ▼
-Static Timing Analysis
-      │
-      ▼
-Design Rule Check
-      │
-      ▼
-Layout Versus Schematic
-      │
-      ▼
-GDSII Generation
-```
-
----
 
 # MAC Unit Architecture
 
