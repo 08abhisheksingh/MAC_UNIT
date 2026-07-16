@@ -56,7 +56,32 @@ The RTL schematics generated using Cadence are shown below.
 
 ---
 
-## 4-bit Multiplier RTL
+## 4-bit Multiplier
+
+### Components
+
+The **4-bit Shift-and-Add Multiplier** consists of the following hardware components:
+
+- **16 AND Gates** for partial product generation (4 × 4 partial products).
+- **Half Adders (HA)** to add partial products where no carry input is required.
+- **Full Adders (FA)** to add partial products along with carry propagation.
+- **Shift-and-Add Logic** to accumulate the generated partial products.
+- **8-bit Output Register** to store the final multiplication result.
+---
+
+The multiplication operation is expressed as:
+
+```text
+P = A × B
+```
+
+where:
+
+- **A[3:0]** → First 4-bit input
+- **B[3:0]** → Second 4-bit input
+- **P[7:0]** → 8-bit multiplication result
+
+---
 
 <p align="center">
 <img src="Waveform Multiplier.png" width="800">
@@ -68,7 +93,32 @@ The RTL schematics generated using Cadence are shown below.
 
 ---
 
-## 17-bit Carry Lookahead Adder RTL
+## 17-bit Carry Lookahead Adder
+
+### Components
+
+The **17-bit Carry Lookahead Adder (CLA)** is designed to perform high-speed binary addition by generating carry signals in advance, reducing the delay associated with ripple carry propagation.
+
+The design consists of:
+
+- **17 Sum Bits** for generating the final addition result.
+- **Carry Generate (G) Logic** to determine carry generation.
+- **Carry Propagate (P) Logic** to determine carry propagation.
+- **Carry Lookahead Network** for parallel carry computation.
+- **Carry Output** to indicate overflow into the next stage.
+
+---
+
+```text
+S = A + B
+```
+
+where:
+
+- **A[16:0]** → First 17-bit input
+- **B[16:0]** → Second 17-bit input
+- **S[16:0]** → 17-bit Sum
+- **Cout** → Carry Output
 
 <p align="center">
 <img src="Waveform Adder.png" width="800">
@@ -80,7 +130,33 @@ The RTL schematics generated using Cadence are shown below.
 
 ---
 
-## Top-Level MAC Unit RTL
+## MAC Unit
+
+### Components
+
+The **4-bit Multiply–Accumulate (MAC) Unit** integrates three major arithmetic modules to perform multiplication followed by accumulation in a single operation.
+
+The design consists of:
+
+- **4-bit Shift-and-Add Multiplier** for generating the product of two 4-bit operands.
+- **17-bit Carry Lookahead Adder (CLA)** for high-speed addition of the multiplication result and the accumulated value.
+- **17-bit Accumulator** for storing the intermediate and final accumulated results.
+- **Clock and Reset Logic** for synchronous operation.
+- **Enable Control Logic** to control the accumulation process.
+
+---
+
+```text
+MAC = (A × B) + Accumulator
+```
+
+where:
+
+- **A[3:0]** → First 4-bit input operand
+- **B[3:0]** → Second 4-bit input operand
+- **A × B** → 8-bit multiplication result
+- **Accumulator[16:0]** → Previously accumulated value
+- **MAC Output[16:0]** → Updated accumulated result
 
 <p align="center">
 <img src="Waveform MAC.png" width="850">
@@ -222,7 +298,13 @@ tree
 
 </table>
 
-> **Note:** While using `nano`, press **Ctrl + O** to save the file, press **Enter** to confirm, and then press **Ctrl + X** to exit the editor.
+<td>
+<img src="Terminal View.png" width="500">
+</td>
+
+<p align="center">
+<b>Figure 2.</b> Terminal View
+</p>
 
 ---
 
