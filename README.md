@@ -58,8 +58,6 @@ The RTL schematics generated using Cadence are shown below.
 
 ## 4-bit Multiplier
 
-### Components
-
 The **4-bit Shift-and-Add Multiplier** consists of the following hardware components:
 
 - **16 AND Gates** for partial product generation (4 × 4 partial products).
@@ -67,7 +65,6 @@ The **4-bit Shift-and-Add Multiplier** consists of the following hardware compon
 - **Full Adders (FA)** to add partial products along with carry propagation.
 - **Shift-and-Add Logic** to accumulate the generated partial products.
 - **8-bit Output Register** to store the final multiplication result.
----
 
 The multiplication operation is expressed as:
 
@@ -95,8 +92,6 @@ where:
 
 ## 17-bit Carry Lookahead Adder
 
-### Components
-
 The **17-bit Carry Lookahead Adder (CLA)** is designed to perform high-speed binary addition by generating carry signals in advance, reducing the delay associated with ripple carry propagation.
 
 The design consists of:
@@ -106,8 +101,6 @@ The design consists of:
 - **Carry Propagate (P) Logic** to determine carry propagation.
 - **Carry Lookahead Network** for parallel carry computation.
 - **Carry Output** to indicate overflow into the next stage.
-
----
 
 ```text
 S = A + B
@@ -119,6 +112,8 @@ where:
 - **B[16:0]** → Second 17-bit input
 - **S[16:0]** → 17-bit Sum
 - **Cout** → Carry Output
+  
+---
 
 <p align="center">
 <img src="Waveform Adder.png" width="800">
@@ -132,8 +127,6 @@ where:
 
 ## MAC Unit
 
-### Components
-
 The **4-bit Multiply–Accumulate (MAC) Unit** integrates three major arithmetic modules to perform multiplication followed by accumulation in a single operation.
 
 The design consists of:
@@ -143,8 +136,6 @@ The design consists of:
 - **17-bit Accumulator** for storing the intermediate and final accumulated results.
 - **Clock and Reset Logic** for synchronous operation.
 - **Enable Control Logic** to control the accumulation process.
-
----
 
 ```text
 MAC = (A × B) + Accumulator
@@ -157,6 +148,7 @@ where:
 - **A × B** → 8-bit multiplication result
 - **Accumulator[16:0]** → Previously accumulated value
 - **MAC Output[16:0]** → Updated accumulated result
+---
 
 <p align="center">
 <img src="Waveform MAC.png" width="850">
