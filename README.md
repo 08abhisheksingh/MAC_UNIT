@@ -15,7 +15,6 @@ Complete RTL-to-GDSII ASIC Implementation using Verilog HDL, OpenLane & Sky130 P
 ![OpenLane](https://img.shields.io/badge/OpenLane-ASIC-green)
 ![Sky130](https://img.shields.io/badge/PDK-Sky130-orange)
 ![Azure VM](https://img.shields.io/badge/Platform-Azure_VM-blue)
-![Ubuntu](https://img.shields.io/badge/OS-Ubuntu-E95420)
 
 </p>
 
@@ -23,7 +22,7 @@ Complete RTL-to-GDSII ASIC Implementation using Verilog HDL, OpenLane & Sky130 P
 
 # Overview
 
-A **Multiply–Accumulate (MAC)** unit is one of the most important arithmetic building blocks used in **Digital Signal Processing (DSP)**, embedded systems, machine learning accelerators, and modern processor architectures. It performs multiplication followed by accumulation in a single operation, enabling high-speed arithmetic computations required in digital systems.
+A **Multiplier-Accumulator (MAC)** unit is a specialized hardware component in digital processors that calculates the product of two numbers and adds that result to an accumulator. It is the fundamental building block for speeding up intensive computations in Digital Signal Processing (DSP, embedded systems, machine learning accelerators, and modern processor architectures.
 
 This repository demonstrates the complete **RTL-to-GDSII ASIC implementation** of a custom **4-bit Multiply–Accumulate (MAC) Unit**.
 
@@ -46,15 +45,6 @@ Due to restricted access to the university Cadence environment outside the campu
 
 <p align="center">
 <b>Figure 1.</b> Block Diagram of the 4-bit MAC Unit
-</p>
-
-The MAC Unit consists of three major hardware blocks.
-
-- **4-bit Shift-and-Add Multiplier**
-- **17-bit Carry Lookahead Adder**
-- **17-bit Accumulator**
-
-The multiplier computes the product of two 4-bit operands. The Carry Lookahead Adder adds the multiplication result to the accumulated value, while the accumulator stores the intermediate result for the next clock cycle.
 
 ---
 
