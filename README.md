@@ -286,6 +286,7 @@ tree -I "runs|mac_sim"
 </table>
 
 <td>
+<p align="center">
 <img src="Terminal View.png" width="500">
 </td>
 
