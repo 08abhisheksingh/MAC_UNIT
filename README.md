@@ -408,24 +408,17 @@ OpenLane automatically executes every stage of the ASIC implementation.
 </td>
 
 <td>
-<img src="Layout Terminal.png" width="600">
+<img src="Layout Terminal1.png" width="600">
 </td>
 
 </tr>
 
-<tr>
 
-<td>
-<img src="Layout Terminal1.png" width="600">
-</td>
+<tr>
 
 <td>
 <img src="Layout Terminal2.png" width="600">
 </td>
-
-</tr>
-
-<tr>
 
 <td colspan="2" align="center">
 <img src="Layout Terminal3.png" width="600">
