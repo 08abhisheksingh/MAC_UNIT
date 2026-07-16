@@ -307,34 +307,6 @@ After successful RTL verification, the complete ASIC implementation was performe
 
 ---
 
-# OpenLane Design Flow
-
-The complete physical implementation follows the sequence shown below.
-
-```text
-RTL Design
-     
-Logic Synthesis
-     
-Floorplanning
-     
-IO Placement
-     
-Clock Tree Synthesis
-     
-Routing
-     
-Static Timing Analysis
-     
-DRC
-
-LVS
-     
-GDSII Generation
-```
-
----
-
 # Launching OpenLane
 
 Navigate to the OpenLane directory.
