@@ -1,8 +1,11 @@
 <h1 align="center">MAC UNIT RTL → GDSII ASIC Implementation</h1>
 
 <p align="center">
-<b> •RTL Design using Cadence</b>
-      </b>•Complete ASIC Implementation using Verilog HDL, OpenLane & Sky130 PDK</b>
+<b>
+RTL Design & Functional Verification using Cadence
+<br>
+Complete RTL-to-GDSII ASIC Implementation using Verilog HDL, OpenLane & Sky130 PDK
+</b>
 </p>
 
 <p align="center">
