@@ -408,7 +408,7 @@ OpenLane automatically executes every stage of the ASIC implementation.
 </td>
 
 <td>
-<img src="Layout Terminal1.png" width="600">
+<img src="Layout Terminal.png" width="600">
 </td>
 
 </tr>
@@ -427,7 +427,6 @@ OpenLane automatically executes every stage of the ASIC implementation.
 </tr>
 
 </table>
----
 
 # Successful Flow Completion
 
@@ -490,8 +489,6 @@ Tiny Tapeout GDS Viewer
 
 https://gds-viewer.tinytapeout.com/
 
----
-
 ## Top View
 
 <p align="center">
@@ -501,8 +498,6 @@ https://gds-viewer.tinytapeout.com/
 <p align="center">
 <b>Figure 17.</b> Top View of the Final GDSII Layout
 </p>
-
----
 
 ## Isometric View
 
