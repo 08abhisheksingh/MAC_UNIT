@@ -357,7 +357,7 @@ Within GTKWave,
 </p>
 
 <p align="center">
-<b>Figure 7.</b> Functional Simulation Output
+<b>Figure 7.</b> GTKWave Verification
 </p>
 
 
