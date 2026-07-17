@@ -353,11 +353,11 @@ Within GTKWave,
 - Verify all outputs
 
 <p align="center">
-<img src="GTKWave.png" width="750">
+<img src="GTKWave.jpeg" width="750">
 </p>
 
 <p align="center">
-<b>Figure 6.</b> Functional Simulation Output
+<b>Figure 7.</b> Functional Simulation Output
 </p>
 
 
@@ -424,7 +424,7 @@ OpenLane automatically executes every stage of the ASIC implementation.
 </table>
 
 <p align="center">
-<b>Figure 7.</b>  OpenLane Flow
+<b>Figure 8.</b>  OpenLane Flow
 </p>
 
 # Successful Flow Completion
@@ -475,7 +475,7 @@ generated automatically by the OpenLane physical design flow.
 </p>
 
 <p align="center">
-<b>Figure 8.</b> Final MAC Unit Layout in KLayout
+<b>Figure 9.</b> Final MAC Unit Layout in KLayout
 </p>
 
 ---
@@ -495,7 +495,7 @@ https://gds-viewer.tinytapeout.com/
 </p>
 
 <p align="center">
-<b>Figure 9.</b> Top View of the Final GDSII Layout
+<b>Figure 10.</b> Top View of the Final GDSII Layout
 </p>
 
 ## Isometric View
@@ -505,7 +505,7 @@ https://gds-viewer.tinytapeout.com/
 </p>
 
 <p align="center">
-<b>Figure 10.</b> Isometric View of the Final GDSII Layout
+<b>Figure 11.</b> Isometric View of the Final GDSII Layout
 </p>
 
 ---
