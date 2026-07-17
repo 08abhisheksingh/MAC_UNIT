@@ -352,16 +352,15 @@ Within GTKWave,
 - Zoom appropriately
 - Verify all outputs
 
-Signals verified include:
+<p align="center">
+<img src="GTKWave.png" width="750">
+</p>
 
-- Clock
-- Reset
-- Enable
-- Input A
-- Input B
-- Multiplier Output
-- Accumulator Output
-- MAC Output
+<p align="center">
+<b>Figure 6.</b> Functional Simulation Output
+</p>
+
+
 
 ---
 
